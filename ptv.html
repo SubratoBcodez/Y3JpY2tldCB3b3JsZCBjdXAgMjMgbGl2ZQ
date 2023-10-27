@@ -48,27 +48,20 @@
     var fullscreenButton = document.getElementById("fullscreen-button");
     var isFullscreen = false;
 
-    // Request fullscreen when the webpage loads
-    if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-    } else if (iframe.mozRequestFullScreen) {
-        iframe.mozRequestFullScreen();
-    } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
-    }
-
     fullscreenButton.addEventListener("click", function () {
         if (!isFullscreen) {
             if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
+                iframe.requestFullscreen({ navigationUI: "hide" });
             } else if (iframe.mozRequestFullScreen) {
                 iframe.mozRequestFullScreen();
             } else if (iframe.webkitRequestFullscreen) {
-                iframe.webkitRequestFullscreen();
+                iframe.webkitRequestFullscreen({ navigationUI: "hide" });
             } else if (iframe.msRequestFullscreen) {
                 iframe.msRequestFullscreen();
+            }
+            // Lock orientation to landscape when entering fullscreen
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock("landscape");
             }
         } else {
             if (document.exitFullscreen) {
@@ -77,6 +70,10 @@
                 document.mozCancelFullScreen();
             } else if (document.webkitExitFullscreen) {
                 document.webkitExitFullscreen();
+            }
+            // Unlock orientation when exiting fullscreen
+            if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
             }
         }
         isFullscreen = !isFullscreen;
