@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fullscreen Iframe Example</title>
+</head>
+<body>
+    <iframe id="fullscreenIframe" src="https://www.example.com"></iframe>
+
+    <script>
+        // Function to request fullscreen for the iframe
+        function requestFullscreen(element) {
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+        }
+
+        // Function to parse URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Check if the "fullscreen" parameter is present in the URL
+        var fullscreenParam = getParameterByName('fullscreen');
+        if (fullscreenParam === 'true') {
+            // Trigger fullscreen mode for the iframe when the page loads
+            window.addEventListener('load', function () {
+                var iframe = document.getElementById('fullscreenIframe');
+                requestFullscreen(iframe);
+            });
+        }
+    </script>
+</body>
+</html>
