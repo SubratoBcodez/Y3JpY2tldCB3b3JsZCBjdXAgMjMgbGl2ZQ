@@ -2,13 +2,25 @@
 <html>
 <head>
 <title>DOne 011</title>
-        <script type="text/javascript">
+    <style>
+        /* Style to hide the pop-up content */
+        .popup-blocker {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
         // Function to block pop-up ads
         function blockPopUpAds() {
             // Check for pop-up attempts
             window.addEventListener('beforeunload', function (e) {
-                // You can customize the message to display to the user
-                e.returnValue = 'Blocking pop-up ads on this website.';
+                // Display a warning message to the user
+                const warningMessage = "Pop-up ads are blocked on this website.";
+                e.preventDefault();
+
+                // Show a div element with the warning message
+                const popupBlocker = document.getElementById('popup-blocker');
+                popupBlocker.style.display = 'block';
+                popupBlocker.innerText = warningMessage;
             });
         }
 
@@ -17,7 +29,8 @@
     </script>
 </head>
 <body>
-
+<!-- Hidden div element for the warning message -->
+    <div id="popup-blocker" class="popup-blocker"></div>
 <iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://wikisport.se/embed/ptv.php"></iframe>
 
 
