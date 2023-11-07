@@ -2,22 +2,24 @@
 <html>
 <head>
 <title>Page Title</title>
+        <script type="text/javascript">
+        // Function to block pop-up ads
+        function blockPopUpAds() {
+            // Check for pop-up attempts
+            window.addEventListener('beforeunload', function (e) {
+                // You can customize the message to display to the user
+                e.returnValue = 'Blocking pop-up ads on this website.';
+            });
+        }
+
+        // Call the blockPopUpAds function when the page loads
+        window.onload = blockPopUpAds;
+    </script>
 </head>
 <body>
 
 <iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://wikisport.se/embed/ptv.php" data-block-popup></iframe>
-    <script>
-        function openLinkWithoutPopUp(url) {
-            window.open(url, '_self');
-        }
 
-        window.addEventListener('click', function (e) {
-            if (e.target.tagName === 'A' && e.target.hasAttribute('data-block-popup')) {
-                e.preventDefault();
-                openLinkWithoutPopUp(e.target.href);
-            }
-        });
-    </script>
 
 </body>
 </html>
