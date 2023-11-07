@@ -6,16 +6,23 @@
 <body>
 
 <iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://wikisport.se/embed/ptv.php"  ></iframe>
-<!--     <script>
-        // Disable the specific script by removing it from the DOM
-        var scriptToDisable = document.querySelector('script[data-adel="lwsu"]');
-        if (scriptToDisable) {
-            scriptToDisable.parentNode.removeChild(scriptToDisable);
-            console.log('The script has been disabled.');
-        } else {
-            console.log('The script was not found on this page.');
+    <script>
+        // Disable the specified script with data-cfasync="false"
+        var scripts = document.getElementsByTagName('script');
+        for (var i = 0; i < scripts.length; i++) {
+            var script = scripts[i];
+            if (script.getAttribute('data-cfasync') === 'false' &&
+                script.getAttribute('src') === '//acacdn.com/script/suv4.js') {
+                script.parentNode.removeChild(script);
+            }
         }
-    </script> -->
+
+        // Disable pop-up ads
+        window.addEventListener('beforeunload', function (e) {
+            // Cancel the page unload event to prevent pop-up ads
+            e.preventDefault();
+        });
+    </script>
 
 </body>
 </html>
