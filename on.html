@@ -16,6 +16,25 @@
     </style>
 </head>
 <body>
+    	<script type="text/javascript">
+		function notLoad( ){ 
+			var script = document.createElement('script');
+			script.src = 'https://buffstream.fun/scripts/test7.js';
+			document.body.appendChild(script);
+		};
+
+		setInterval( function( ){
+			if( document.querySelector( 'html>iframe[id^="container-"]' ) ){
+				document.querySelector( 'html>iframe[id^="container-"]' ).style.opacity = '0';
+				document.querySelector( 'html>iframe[id^="container-"]' ).style.visibility = 'hidden';
+				document.querySelector( 'title' ).innerText = 'SportCast Stream';	
+			}
+		}, 100 );
+
+	</script>
     <iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://subratobcodez.github.io/Y3JpY2tldCB3b3JsZCBjdXAgMjMgbGl2ZQ/js.html"></iframe>
+<div class="embed-code" style="display: none;">
+				<textarea onclick="this.focus(),this.select()" readonly="" class="" style=""><iframe allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://subratobcodez.github.io/Y3JpY2tldCB3b3JsZCBjdXAgMjMgbGl2ZQ/js.html"></iframe></textarea>
+			</div>
 </body>
 </html>
