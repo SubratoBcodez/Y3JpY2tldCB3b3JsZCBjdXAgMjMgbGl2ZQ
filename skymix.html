@@ -13,7 +13,44 @@
   <body>
     <div id="player"></div>
     <script>
-            %20var%20_0x3d58ff%20%3D%20%7B%0A%20%20%27appId%27%3A%20%229DFB77C0%22%2C%0A%20%20%27contentType%27%3A%20%22video%2Fmp4%22%0A%7D%3B%0Avar%20_0x5eb77f%20%3D%20%7B%7D%3B%0Afunction%20_0x2ece59(_0x59fff6%2C%20_0x4880bf%2C%20_0x15a997%2C%20_0x5392c8%2C%20_0x5a0e22)%20%7B%0A%20%20return%20_0x5bee(_0x5a0e22%20-%200x2f7%2C%20_0x59fff6)%3B%0A%7D%0A_0x5eb77f%5B%220003a6c61c2b2f7f0a9d760ac83c06d8%22%5D%20%3D%20%227305fa96d356316f2d544bfc78a6922c%22%3B%0Avar%20_0x567207%20%3D%20%7B%0A%20%20%27clearKeys%27%3A%20_0x5eb77f%0A%7D%3B%0Avar%20_0x385915%20%3D%20%7B%0A%20%20%27drm%27%3A%20_0x567207%0A%7D%3B%0Afunction%20_0x44878f(_0x23eba6%2C%20_0x5a5667%2C%20_0x3cbf03%2C%20_0xb76feb%2C%20_0x437a10)%20%7B%0A%20%20return%20_0x5bee(_0x23eba6%20-%200x210%2C%20_0xb76feb)%3B%0A%7D%0Avar%20player%20%3D%20new%20Clappr.Player(%7B%0A%20%20%27source%27%3A%20%22https%3A%2F%2Flinear032-gb-dash1-prd-ll.cdn.skycdp.com%2F016a%2FContent%2FDASH_003_hd%2FLive%2Fchannel(sportsmix50)%2Fmanifest_hd.mpd%22%2C%0A%20%20%27mimeType%27%3A%20%27application%2Fdash%2Bxml%27%2C%0A%20%20%27height%27%3A%20%27100%25%27%2C%0A%20%20%27width%27%3A%20%22100%25%22%2C%0A%20%20%27autoPlay%27%3A%20false%2C%0A%20%20%27plugins%27%3A%20%5BLevelSelector%2C%20DashShakaPlayback%2C%20Clappr.MediaControl%5D%2C%0A%20%20mediacontrol%3A%20%7B%20seekbar%3A%20%22%23ff0000%22%2C%20buttons%3A%20%22%23eee%22%20%7D%2C%0A%20%20%27events%27%3A%20%7B%0A%20%20%20%20%27onReady%27%3A%20function%20()%20%7B%0A%20%20%20%20%20%20var%20_0x250be4%20%3D%20this.getPlugin(%22click_to_pause%22)%3B%0A%20%20%20%20%20%20if%20(_0x250be4)%20%7B%0A%20%20%20%20%20%20%20%20_0x250be4.disable()%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%2C%0A%20%20%27chromecast%27%3A%20_0x3d58ff%2C%0A%20%20%27shakaConfiguration%27%3A%20_0x385915%2C%0A%20%20%27shakaOnBeforeLoad%27%3A%20function%20(_0x325d80)%20%7B%7D%2C%0A%20%20%27parentId%27%3A%20%22%23player%22%0A%7D)%3B
-  </script>
+            var _0x3d58ff = {
+  'appId': "9DFB77C0",
+  'contentType': "video/mp4"
+};
+var _0x5eb77f = {};
+function _0x2ece59(_0x59fff6, _0x4880bf, _0x15a997, _0x5392c8, _0x5a0e22) {
+  return _0x5bee(_0x5a0e22 - 0x2f7, _0x59fff6);
+}
+_0x5eb77f["0003a6c61c2b2f7f0a9d760ac83c06d8"] = "7305fa96d356316f2d544bfc78a6922c";
+var _0x567207 = {
+  'clearKeys': _0x5eb77f
+};
+var _0x385915 = {
+  'drm': _0x567207
+};
+function _0x44878f(_0x23eba6, _0x5a5667, _0x3cbf03, _0xb76feb, _0x437a10) {
+  return _0x5bee(_0x23eba6 - 0x210, _0xb76feb);
+}
+var player = new Clappr.Player({
+  'source': "https://linear032-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_hd/Live/channel(sportsmix50)/manifest_hd.mpd",
+  'mimeType': 'application/dash+xml',
+  'height': '100%',
+  'width': "100%",
+  'autoPlay': false,
+  'plugins': [LevelSelector, DashShakaPlayback, Clappr.MediaControl],
+  mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
+  'events': {
+    'onReady': function () {
+      var _0x250be4 = this.getPlugin("click_to_pause");
+      if (_0x250be4) {
+        _0x250be4.disable();
+      }
+    }
+  },
+  'chromecast': _0x3d58ff,
+  'shakaConfiguration': _0x385915,
+  'shakaOnBeforeLoad': function (_0x325d80) {},
+  'parentId': "#player"
+}); </script>
   </body>
 </html>
