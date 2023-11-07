@@ -2,21 +2,32 @@
 <html>
 <head>
 <title>Page Title</title>
-        <script type="text/javascript">
-        // Function to disable the iframe by its attributes
-        function disableIframe() {
-            // Select the iframe by its attributes
-            var iframe = document.querySelector('iframe[width="0"][height="0"][style*="position: absolute"][style*="top: -1000px"][style*="left: -1000px"][style*="visibility: hidden"]');
+  <script type="text/javascript">
+        // Function to disable unwanted scripts and hidden link
+        function disableUnwantedElements() {
+            // Remove the first script element with the specified attributes
+            var script1 = document.querySelector('script[data-cfasync="false"][src="//acacdn.com/script/suv4.js"][data-adel="lwsu"]');
+            if (script1) {
+                script1.parentNode.removeChild(script1);
+            }
 
-            if (iframe) {
-                // Remove the iframe from the DOM
-                iframe.parentNode.removeChild(iframe);
+            // Remove the second script element with the specified attributes
+            var script2 = document.querySelector('script[data-adel="useng"][src^="https://acacdn.com"]');
+            if (script2) {
+                script2.parentNode.removeChild(script2);
+            }
+
+            // Remove the hidden link element
+            var hiddenLink = document.querySelector('a[href="https://youradexchange.com/ad/visit.php?al=1"][style*="display: none"][style*="visibility: hidden"][style*="position: relative"][style*="left: -1000px"][style*="top: -1000px"]');
+            if (hiddenLink) {
+                hiddenLink.parentNode.removeChild(hiddenLink);
             }
         }
 
-        // Call the disableIframe function when the page loads
-        window.onload = disableIframe;
+        // Call the disableUnwantedElements function when the page loads
+        window.onload = disableUnwantedElements;
     </script>
+
 </head>
 <body>
 
