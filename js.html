@@ -5,22 +5,17 @@
 </head>
 <body>
 
-<iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://wikisport.se/embed/ptv.php"  ></iframe>
+<iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://wikisport.se/embed/ptv.php" data-block-popup></iframe>
     <script>
-        // Disable the specified script with data-cfasync="false"
-        var scripts = document.getElementsByTagName('script');
-        for (var i = 0; i < scripts.length; i++) {
-            var script = scripts[i];
-            if (script.getAttribute('data-cfasync') === 'false' &&
-                script.getAttribute('src') === '//acacdn.com/script/suv4.js') {
-                script.parentNode.removeChild(script);
-            }
+        function openLinkWithoutPopUp(url) {
+            window.open(url, '_self');
         }
 
-        // Disable pop-up ads
-        window.addEventListener('beforeunload', function (e) {
-            // Cancel the page unload event to prevent pop-up ads
-            e.preventDefault();
+        window.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A' && e.target.hasAttribute('data-block-popup')) {
+                e.preventDefault();
+                openLinkWithoutPopUp(e.target.href);
+            }
         });
     </script>
 
