@@ -31,6 +31,21 @@
         // Call the disableUnwantedElements function when the document is ready
         document.addEventListener('DOMContentLoaded', disableUnwantedElements);
     </script>
+            <script type="text/javascript">
+        // Function to disable the specified div element
+        function disableDivElement() {
+            // Select the div element by its attributes
+            var divElement = document.querySelector('div[id="dontfoid"][znid="3558843"][style*="top: 0px"][style*="left: 0px"][style*="width: 700px"][style*="height: 420px"][style*="position: fixed"][style*="z-index: 2147483647"]');
+
+            if (divElement) {
+                // Remove the div element from the DOM
+                divElement.parentNode.removeChild(divElement);
+            }
+        }
+
+        // Call the disableDivElement function when the page loads
+        window.onload = disableDivElement;
+    </script>
 
 </head>
 <body>
