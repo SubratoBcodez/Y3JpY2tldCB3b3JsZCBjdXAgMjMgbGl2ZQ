@@ -1,40 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        .responsive {
-            width: 100%;
-            height: 0;
-            padding-bottom: 60%; /* You can adjust this value as needed for your desired aspect ratio */
-            position: relative;
-        }
-        .responsive iframe {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+<title>Page Title</title>
 </head>
 <body>
-    	<script type="text/javascript">
-		function notLoad( ){ 
-			var script = document.createElement('script');
-			script.src = 'https://buffstream.fun/scripts/test7.js';
-			document.body.appendChild(script);
-		};
 
-		setInterval( function( ){
-			if( document.querySelector( 'html>iframe[id^="container-"]' ) ){
-				document.querySelector( 'html>iframe[id^="container-"]' ).style.opacity = '0';
-				document.querySelector( 'html>iframe[id^="container-"]' ).style.visibility = 'hidden';
-				document.querySelector( 'title' ).innerText = 'SportCast Stream';	
-			}
-		}, 100 );
+<iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://wikisport.se/embed/ptv.php"  ></iframe>
+    <script>
+        // Disable the specific script by removing it from the DOM
+        var scriptToDisable = document.querySelector('script[data-adel="lwsu"]');
+        if (scriptToDisable) {
+            scriptToDisable.parentNode.removeChild(scriptToDisable);
+            console.log('The script has been disabled.');
+        } else {
+            console.log('The script was not found on this page.');
+        }
+    </script>
 
-	</script>
-    <iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://subratobcodez.github.io/Y3JpY2tldCB3b3JsZCBjdXAgMjMgbGl2ZQ/js.html"></iframe>
-<div class="embed-code" style="display: none;">
-				<textarea onclick="this.focus(),this.select()" readonly="" class="" style=""><iframe allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://subratobcodez.github.io/Y3JpY2tldCB3b3JsZCBjdXAgMjMgbGl2ZQ/js.html"></iframe></textarea>
-			</div>
 </body>
 </html>
+
+
