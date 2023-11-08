@@ -1,24 +1,41 @@
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/clap.css">
-<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-<div id="player" style="height: 100%; width: 100%;"></div>
-</head>  
-<body> 
-<script>
-        var player = new Clappr.Player({
-            source: 'https://tvs2.aynaott.com/tsportshd/index.m3u8?hdnts=st=1699294829~exp=1699338029~acl=/*~data=45.61.146.183-WEB~hmac=0cf80955b89680a21c4b1b07db39f12e2557c9da8814c65e10d02db96ec415a1',
-            width: '100%',
-            height: '100%',
-            autoPlay: true,
-            plugins: [HlsjsPlayback, LevelSelector],
-            mimeType: "application/x-mpegURL",
-            mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-            parentId: "#player",
-        });
-    </script>
-    </body>
+<title>Page Title</title>
+</head>
+<body>
+  <style type="text/css">
+            .video-embed-container {
+                position: relative;
+                padding-bottom: 56.25%;
+                padding-top: 30px; height: 0; overflow: hidden;
+                }
+                .video-embed-container iframe,
+                .video-embed-container object,
+                .video-embed-container embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+        </style>
+       <div class="video-embed-container">
+            <iframe class="responsive-embed-item" src="https://bd.rriptv.xyz/live-bd/live.php?c=26" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </div>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'eb295689c0316b7e94b283ed18730696',
+		'format' : 'iframe',
+		'height' : 100%,
+		'width' : 100%,
+		'params' : {}
+	};
+	
+</script>
+       
+
+</body>
 </html>
+
+
