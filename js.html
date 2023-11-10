@@ -1,53 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>DOne 011</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
     <style>
-        /* Style to hide the pop-up content */
-        .popup-blocker {
-            display: none;
+        #video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        #fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
         }
     </style>
-    <script type="text/javascript">
-        // Function to block pop-up ads
-        function blockPopUpAds() {
-            // Check for pop-up attempts
-            window.addEventListener('beforeunload', function (e) {
-                // Display a warning message to the user
-                const warningMessage = "Pop-up ads are blocked on this website.";
-                e.preventDefault();
-
-                // Show a div element with the warning message
-                const popupBlocker = document.getElementById('popup-blocker');
-                popupBlocker.style.display = 'block';
-                popupBlocker.innerText = warningMessage;
-            });
-        }
-
-        // Call the blockPopUpAds function when the page loads
-        window.onload = blockPopUpAds;
-    </script>
 </head>
 <body>
-<!-- Hidden div element for the warning message -->
-    <div id="popup-blocker" class="popup-blocker"></div>
-<iframe class="responsive" allow="encrypted-media" width="700" height="420" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowfullscreen="yes" src="https://wikisport.se/embed/ptv.php"></iframe>
+    <iframe id="fullscreen-iframe" src="https://jatiyatopic.xyz/live/play.php?id=starhindi" width="100%" height="400px" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" allowfullscreen allow="encrypted-media"></iframe>
+       
 
-  <script type="text/javascript">
-        // Function to prevent pop-under ads
-        function preventPopUnder() {
-            var newWindow = window.open('', '_blank', 'width=0,height=0');
 
-            // Check if the new window is a pop-under ad
-            if (newWindow && newWindow.outerWidth === 0 && newWindow.outerHeight === 0) {
-                newWindow.close();
+<button id="fullscreen-button">Toggle Fullscreen</button>
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    var iframe = document.querySelector("iframe");
+    var fullscreenButton = document.getElementById("fullscreen-button");
+    var isFullscreen = false;
+
+    fullscreenButton.addEventListener("click", function () {
+        if (!isFullscreen) {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen({ navigationUI: "hide" });
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen({ navigationUI: "hide" });
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+            // Lock orientation to landscape when entering fullscreen
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock("landscape");
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+            // Unlock orientation when exiting fullscreen
+            if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
             }
         }
+        isFullscreen = !isFullscreen;
+    });
+});
 
-        // Attach the function to the click event to prevent pop-unders
-        document.addEventListener('click', preventPopUnder);
     </script>
 </body>
 </html>
-
-
