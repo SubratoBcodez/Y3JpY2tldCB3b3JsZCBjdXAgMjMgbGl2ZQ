@@ -24,7 +24,7 @@
 </head>
 <body style="margin: 0; overflow: hidden;">
 
-<div id="player-container" style="position: relative; width: 100%; height: 100vh;"><iframe src="https://pipcast.cc/embed.php?v=asports" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe><button id="fullscreen-button" style="position: absolute; top: 10px; right: 10px;">Fullscreen</button></div>
+<div id="player-container" style="position: relative; width: 100%; height: 100vh;"><iframe src="https://pipcast.cc/embed.php?v=asports" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" sandbox="allow-scripts"></iframe><button id="fullscreen-button" style="position: absolute; top: 10px; right: 10px;">Fullscreen</button></div>
 <script>
 // JavaScript to toggle fullscreen mode
 document.addEventListener("DOMContentLoaded", function () {
@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isFullscreen = !isFullscreen;
     });
 });
+    iframe.removeAttribute('sandbox');
 </script>
 
 </body>
