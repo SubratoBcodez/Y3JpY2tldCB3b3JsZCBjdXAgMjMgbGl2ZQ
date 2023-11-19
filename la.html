@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reproductor M3U8 & MPD Player</title>
+  <style type="text/css">body{margin:0 auto;}</style>
+</head>
+<body>
+  <!-- Include Clappr library and plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/clappr@0.5.0/dist/clappr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clappr-level-selector@0.0.4/dist/level-selector.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clappr-pip@0.0.3/dist/clappr-pip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clappr-dash-shaka-playback@0.4.1/dist/dash-shaka-playback.js"></script>
+
+  <!-- Include your player.js script -->
+  <script src="player.js"></script>
+
+  <div>
+    <label for="streamUrl">Enter Stream URL:</label>
+    <input type="text" id="streamUrl" placeholder="Enter the stream URL">
+    <button onclick="playStream()">Play</button>
+  </div>
+
+  <div id="player"></div>
+
+  <script>
+    function playStream() {
+      var url = document.getElementById('streamUrl').value;
+      try {
+        var ck = window.atob(window.location.href.split("&ck=")[1]);
+      } catch {
+        var ck = '{"":""}';
+      }
+      try {
+        var license = window.atob(window.location.href.split("&l=")[1]);    
+      } catch {
+        var license = '';
+      }
+      playM3u8(url, license, ck);
+    }
+
+    // The following code is taken from your player.js script
+    function playM3u8(url, license, clearkeys) {
+        var player = new Clappr.Player({
+            source: url,
+            parentId: '#player',
+            preload: 'auto',
+            autoPlay: true,
+            width: '100%',
+            height: '100%',
+            fullscreenEnabled: true,
+            hideMediaControl: false,
+            plugins: [Clappr.LevelSelector, Clappr.PipPlugin, Clappr.DashShakaPlayback],
+            shakaConfiguration: {
+                drm: {
+                    servers: {
+                        'com.widevine.alpha': license
+                    },
+                    clearKeys: JSON.parse(clearkeys)
+                },
+            },
+        });
+
+        document.title = url;
+    }
+  </script>
+</body>
+</html>
