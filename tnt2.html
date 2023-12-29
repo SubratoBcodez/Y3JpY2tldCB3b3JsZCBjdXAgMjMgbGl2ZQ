@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>CWC 23 LIVE</title>
+<link rel="stylesheet" type="text/css" href="/clap.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+<div id="player" style="height: 100%; width: 100%;"></div>
+</head>  
+<body> 
+<script>
+        var player = new Clappr.Player({
+            source: 'https://247c.mrgamingstreams.com/mrgamingbtsport2.m3u8',
+            width: '100%',
+            height: '100%',
+            autoPlay: true,
+            plugins: [HlsjsPlayback, LevelSelector],
+            mimeType: "application/x-mpegURL",
+            mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
+            parentId: "#player",
+        });
+    </script>
+    </body>
+</html>
