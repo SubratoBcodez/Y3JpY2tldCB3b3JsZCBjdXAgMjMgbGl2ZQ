@@ -1,0 +1,153 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniyTV | Star Sport 2</title>
+    <link rel="shortcut icon" href="https://www.freepnglogos.com/uploads/tv-png/tv-png-box-television-set-cable-screen-icon-31.png"/>
+    <!-- libraries libraries -->
+    <link href="./assets/css/video-js.css" rel="stylesheet"/>
+    <link href="./assets/css/video-js.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js"></script>
+    <script src="./assets/js/video.min.js"></script>
+    <script src="./assets/js/video.core.min.js"></script>
+    <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
+    <style>
+      html {
+        font-family: Poppins;
+        background: #000;
+      }
+      #my-video {
+        background: #000;
+        position: fixed; 
+        right: 0; 
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+        width:auto!important;
+        height:auto!important;
+      }
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+      }
+      .loading-text {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+      }
+      .loading-text span {
+        display: inline-block;
+        margin: 0 5px;
+        color: #00b3ff;
+        font-family: 'Quattrocento Sans', sans-serif;
+      }
+      .loading-text span:nth-child(1) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0s infinite linear alternate;
+      }
+      .loading-text span:nth-child(2) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.2s infinite linear alternate;
+      }
+      .loading-text span:nth-child(3) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.4s infinite linear alternate;
+      }
+      .loading-text span:nth-child(4) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.6s infinite linear alternate;
+      }
+      .loading-text span:nth-child(5) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.8s infinite linear alternate;
+      }
+      .loading-text span:nth-child(6) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1s infinite linear alternate;
+      }
+      .loading-text span:nth-child(7) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1.2s infinite linear alternate;
+      }
+      .loading-text span:nth-child(8) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1.4s infinite linear alternate;
+      }
+      .loading-text span:nth-child(9) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1.6s infinite linear alternate;
+      }
+      @keyframes blur-text {
+        0% {
+          filter: blur(0px);
+        }
+        100% {
+          filter: blur(4px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading" class="loading">
+      <div class="loading-text">
+        <span class="loading-text-words">U</span>
+        <span class="loading-text-words">N</span>
+        <span class="loading-text-words">I</span>
+        <span class="loading-text-words">Y</span>
+        <span class="loading-text-words">T</span>
+        <span class="loading-text-words">V</span>
+      </div>
+    </div>
+    
+    <video id="my-video" class="video-js vjs-default-skin" controls>
+      <source src="https://edge3-moblive.yuppcdn.net/trans1sd/smil:starsports2.smil/chunklist.m3u8" type="application/x-mpegURL">
+    </video>
+    <script>
+      var player = videojs('my-video', {
+    techOrder: ['html5'],
+    html5: {
+      vhs: {
+        overrideNative: true,
+        debug: true
+      }
+    }
+});
+
+player.ready(function () {
+    var hlsTech = player.tech({IWillNotUseThisInPlugins: true});
+
+    hlsTech.on('hlsDebug', function (event, data) {
+        console.log('HLS.js Log:', data);
+});
+    hlsTech.on(Hls.Events.MEDIA_ATTACHED, function () {
+        console.log('video and hls.js are now bound together !');
+});
+    hlsTech.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+        console.log(
+           'manifest loaded, found ' + data.levels.length + ' quality level'
+         );
+    });
+});
+
+    </script>
+    <script type="text/javascript">
+      setTimeout(videovisible, 3000)
+  
+      function videovisible() {
+          document.getElementById('loading').style.display = 'none'
+      }
+    </script>
+  </body>
+</html>
