@@ -1,57 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>TNT Sports 1</title>
+    <script src="../lmao.js" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.5.0/controls.min.css" crossorigin="anonymous">
+    <script>  if(confirm("Join Our Telegram Channel @iamsom77")) { window.location.href = "https://telegram.me/iamsom77" }</script>
 
+</head>
+<body bgcolor='black' style='margin:0'>
 
-
-<html>
-  <head>
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
-  </head>
-
-  <body>
-    <div id="player"></div>
+<body>
+    <center>
+            <div data-shaka-player-container style='width: 100%; height: 100%'>
+            <video poster="https://images.metadata.sky.com/pd-logo/skychb_3661_lightnow" autoplay data-shaka-player id='video' style='width:100%;height:100%;'></video>
+        </div>
+    </center>
     <script>
-            var _0x3d58ff = {
-  'appId': "9DFB77C0",
-  'contentType': "video/mp4"
-};
-var _0x5eb77f = {};
-function _0x2ece59(_0x59fff6, _0x4880bf, _0x15a997, _0x5392c8, _0x5a0e22) {
-  return _0x5bee(_0x5a0e22 - 0x2f7, _0x59fff6);
-}
-_0x5eb77f["0003a6c61c2b2f7f0a9d760ac83c06d8"] = "7305fa96d356316f2d544bfc78a6922c";
-var _0x567207 = {
-  'clearKeys': _0x5eb77f
-};
-var _0x385915 = {
-  'drm': _0x567207
-};
-function _0x44878f(_0x23eba6, _0x5a5667, _0x3cbf03, _0xb76feb, _0x437a10) {
-  return _0x5bee(_0x23eba6 - 0x210, _0xb76feb);
-}
-var player = new Clappr.Player({
-  'source': "https://linear014-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_hd/Live/channel(tntsport1)/manifest_hd.mpd",
-  'mimeType': 'application/dash+xml',
-  'height': '100%',
-  'width': "100%",
-  'autoPlay': false,
-  'plugins': [LevelSelector, DashShakaPlayback, Clappr.MediaControl],
-  mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-  'events': {
-    'onReady': function () {
-      var _0x250be4 = this.getPlugin("click_to_pause");
-      if (_0x250be4) {
-        _0x250be4.disable();
-      }
-    }
-  },
-  'chromecast': _0x3d58ff,
-  'shakaConfiguration': _0x385915,
-  'shakaOnBeforeLoad': function (_0x325d80) {},
-  'parentId': "#player"
-}); </script>
-  </body>
+        const manifestUri = "https://linear014-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_hd/Live/channel(tntsport1)/manifest_hd.mpd";
+        async function init() {
+            const video = document.getElementById('video');
+            const ui = video['ui'];
+            const controls = ui.getControls();
+            const player = controls.getPlayer();
+            window.player = player;
+            window.ui = ui;
+            player.configure({
+                drm: {
+                    "clearKeys": {
+                        '0005888b503e9ca2bc49d35ba00df2d9': '74c2df857d2fab7bac13a627db6424fe'
+                    }
+                }
+            });
+            player.addEventListener('error', onPlayerErrorEvent);
+            controls.addEventListener('error', onUIErrorEvent);
+            try {
+                await player.load(manifestUri);
+                console.log('The video has now been loaded!');
+            } catch (error) {
+                onPlayerError(error);
+        }}
+        function onPlayerErrorEvent(errorEvent) {
+            onPlayerError(event.detail);
+        }
+        function onPlayerError(error) {
+            console.error('Error code', error.code, 'object', error);
+        }
+        function onUIErrorEvent(errorEvent) {
+            onPlayerError(event.detail);
+        }
+        function initFailed(errorEvent) {
+            console.error('Unable to load the UI library!');
+        }
+        document.addEventListener('shaka-ui-loaded', init);
+        document.addEventListener('shaka-ui-load-failed', initFailed);
+    </script>
+</body>
 </html>
